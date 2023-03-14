@@ -40,9 +40,13 @@ jobs:
       - run: rm -rf tests # remove any user provided test dir
       - uses: actions/checkout@v3 # checkout tests repo
         with:
-          repository: <TEST REPO GOES HERE>
+          repository: developer-job-simulation/express-js-backend-tests
           path: tests
-      - name: npm install
-        run: cd tests && npm i
+      - name: npm install project
+        run: cd src && npm ci
+      - name: npm install test
+        run: cd tests && npm ci
+      - name: npm start
+        run: cd src && npm start > /dev/null 2>&1 &
       - name: Run Tests
-        run: node tests/test.js
+        run: node test/test.js
