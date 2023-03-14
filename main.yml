@@ -49,4 +49,4 @@ jobs:
       - name: npm start
         run: cd src && npm start > /dev/null 2>&1 &
       - name: Run Tests
-        run: node test/test.js
+        run: node tests/test.js
